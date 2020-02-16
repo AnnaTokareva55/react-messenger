@@ -33,5 +33,6 @@
   "display": "standalone",
   "orientation": "any",
   "background_color": "lightslategray",
-  "theme_color": "lightskyblue"
+  "theme_color": "lightskyblue",
+  "gcm_sender_id": "1234567890"
 }

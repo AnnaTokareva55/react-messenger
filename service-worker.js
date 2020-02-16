@@ -36,3 +36,15 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
+self.addEventListener("push", event => {
+  console.info("Event: push.");
+  let title = "Новое уведомление";
+  let body = {
+    body: "Нажми, чтобы открыть.",
+    tag: "pwa",
+    icon: "./manifest/chat-icon-48.png"
+  };
+
+  event.waitUntil(self.registration.showNotofocation(title, body));
+});

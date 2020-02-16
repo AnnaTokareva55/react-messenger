@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import { PushButton } from "../PushButton/PushButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,6 +43,9 @@ export const Header = ({ title, userName, showMenu }) => {
           <Typography variant="h6" className={classes.title}>
             {title}
           </Typography>
+          <Button>
+            <PushButton />
+          </Button>
           <Button color="inherit">
             <Link to="/profile" className="profileLink">
               {userName}
