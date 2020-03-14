@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./ChatList.css";
 import classnames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+// Компонент бокового меню со списком чатов.
 export const ChatList = ({
   chats,
   activeChat,
@@ -89,4 +91,13 @@ export const ChatList = ({
       </ListItem>
     </List>
   );
+};
+
+ChatList.propTypes = {
+  chats: PropTypes.array.isRequired,
+  activeChat: PropTypes.number.isRequired,
+  menuView: PropTypes.bool.isRequired,
+  addChat: PropTypes.func.isRequired,
+  deleteChat: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired
 };

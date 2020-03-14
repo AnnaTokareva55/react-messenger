@@ -1,12 +1,11 @@
 {
-  "name": "lesson_1",
+  "name": "react-messenger",
   "version": "1.0.0",
   "description": "",
   "main": "index.jsx",
   "scripts": {
     "build": "webpack --mode=production",
-    "dev": "webpack-dev-server --mode=development --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --mode=development --open"
   },
   "keywords": [],
   "author": "",

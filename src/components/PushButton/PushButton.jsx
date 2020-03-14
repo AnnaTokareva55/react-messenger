@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./PushButton.css";
 
+// Компонент кнопки подписки на push-уведомления.
 export class PushButton extends Component {
   render() {
     return (

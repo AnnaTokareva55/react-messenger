@@ -1,9 +1,9 @@
 import React, { Component, useState } from "react";
 import PropTypes from "prop-types";
+import "./ChatForm.css";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import "./ChatForm.css";
 
 const useStyles = makeStyles(theme => ({
   button: {

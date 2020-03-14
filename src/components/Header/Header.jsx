@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+// Компонент шапки приложения.
 export const Header = ({ title, userName, showMenu }) => {
   const classes = useStyles();
 

@@ -4,6 +4,7 @@ import { Message } from "../Message/Message";
 import { MessageField } from "../MessageField/MessageField";
 import { ChatForm } from "../ChatForm/ChatForm";
 
+// Компонент-обертка для чата, включающий поле для сообщений и форму отправки нового сообщения.
 export const Chat = ({ messages, onSendMessage, deleteMessage }) => {
   if (messages) {
     return (

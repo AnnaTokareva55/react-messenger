@@ -2,17 +2,10 @@ import React, { Component } from "react";
 import Close from "material-ui/svg-icons/navigation/close";
 import "./InstallPopup.css";
 
+// Уведомление с предложением об установке приложения на iPhone.
 export class InstallPopup extends Component {
   state = {
     popupShow: false
-  };
-
-  handleShow = () => {
-    this.setState({ popupShow: true });
-  };
-
-  handleNotShow = () => {
-    this.setState({ popupShow: false });
   };
 
   componentDidMount() {
@@ -30,8 +23,15 @@ export class InstallPopup extends Component {
     }
   }
 
+  handleShow = () => {
+    this.setState({ popupShow: true });
+  };
+
+  handleNotShow = () => {
+    this.setState({ popupShow: false });
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div
         style={{ display: this.state.popupShow ? "block" : "none" }}

@@ -10,6 +10,7 @@ ReactDom.render(
   document.getElementById("root")
 );
 
+// Подключение service-worker.js к приложению.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
@@ -20,11 +21,12 @@ if ("serviceWorker" in navigator) {
         )
       )
       .catch(error =>
-        console.log(`Ну удалось зеристрировать ServiceWorker. ${error}.`)
+        console.error(`Ну удалось зеристрировать ServiceWorker. ${error}.`)
       );
   });
-} else console.log(`ServiceWorker не поддерживается.`);
+} else console.info(`ServiceWorker не поддерживается.`);
 
+// Отслеживание события установки приложения. В качестве url'а - заглушка.
 window.addEventListener("appinstalled", event => {
   fetch("/api/app.json", {
     method: "GET",
@@ -32,12 +34,21 @@ window.addEventListener("appinstalled", event => {
   });
 });
 
+// Добавление функционала push-уведомлений.
 window.addEventListener("load", event => notifications(window));
 
+/**
+ * Реализация функционала подписки на push-уведомления.
+ * @param {object} window - глобальный объект window после загрузки.
+ */
 function notifications(window) {
+  // Кнопка подписки/отписки
   const pushElement = document.querySelector(".push");
   const pushImgElement = document.querySelector(".push-img");
 
+  /**
+   * Проверка поддержки push-уведомлений браузером, наличия разрешения на отправку и подписки.
+   */
   function isPushSupported() {
     if (Notification.permission === "denied") {
       alert("Вы заблокировали push-уведомления.");
@@ -45,7 +56,7 @@ function notifications(window) {
     }
 
     if (!("PushManager" in window)) {
-      alert("1111Push-уведомления не поддерживаются браузером.");
+      alert("Push-уведомления не поддерживаются браузером.");
       return;
     }
 
@@ -63,10 +74,13 @@ function notifications(window) {
     });
   }
 
+  /**
+   * Предложение подписки на push-уведомления и подписка.
+   */
   function subscribePush() {
     navigator.serviceWorker.ready.then(registration => {
       if (!registration.pushManager) {
-        alert("222Push-уведомления не поддерживаются браузером.");
+        alert("Push-уведомления не поддерживаются браузером.");
         return false;
       }
 
@@ -84,6 +98,9 @@ function notifications(window) {
     });
   }
 
+  /**
+   * Отписка от push-уведомлений.
+   */
   function unSubscribePush() {
     navigator.serviceWorker.ready.then(registration => {
       registration.pushManager.getSubscription().then(subscription => {
@@ -107,6 +124,10 @@ function notifications(window) {
     });
   }
 
+  /**
+   * Изменеие статуса подписки на push-уведомления.
+   * @param {boolean} status - новый статус подписки.
+   */
   function changePushStatus(status) {
     pushElement.dataset.checked = status;
     pushElement.checked = status;
@@ -119,6 +140,7 @@ function notifications(window) {
     }
   }
 
+  // Обработка события клика на кнопку подписки.
   pushElement.addEventListener("click", event => {
     let isSubscribeId = pushElement.dataset.checked === "true";
     if (isSubscribeId) {
@@ -126,7 +148,6 @@ function notifications(window) {
     } else {
       subscribePush();
     }
-
     isPushSupported();
   });
 }

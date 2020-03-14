@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "./Message.css";
 import classnames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles(theme => ({
@@ -14,6 +13,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+// Компонент одного сообщения в чате.
 export const Message = ({ name, content, messageId, deleteMessage }) => {
   const classes = useStyles();
   const [del, setDel] = useState(false);
