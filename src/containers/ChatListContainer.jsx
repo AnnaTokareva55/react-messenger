@@ -1,15 +1,15 @@
 import { ChatList } from "../components/ChatList/ChatList";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addChat, deleteChat } from "../store/chatAction";
 import { push } from "connected-react-router";
+import { addChat, deleteChat } from "../store/chatAction";
 
 const mapStateToProps = ({ chatReducer, menuReducer }) => {
   const chats = Object.keys(chatReducer.chats).map(chatId => ({
     chatId,
     title: chatReducer.chats[chatId].title
   }));
-  const activeChat = chatReducer.activeChat;
+  const activeChat = +chatReducer.activeChat;
   const menuView = menuReducer.menuView;
   return {
     chats,

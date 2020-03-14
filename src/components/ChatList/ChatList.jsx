@@ -39,10 +39,17 @@ export const ChatList = ({
     ChatListView: menuView
   });
 
+  /**
+   * Переход в другой чат по переданному адресу.
+   * @param {string} link - относительный адрес чата.
+   */
   const handleNavigate = link => {
     push(link);
   };
 
+  /**
+   * Обработка клика на кнопку добавления нового чата.
+   */
   const handleClick = () => {
     if (title) {
       addChat({ title });
@@ -50,6 +57,9 @@ export const ChatList = ({
     }
   };
 
+  /**
+   * Обработка события нажатия ctrl+enter в форме создания нового чата.
+   */
   const handleKeyUp = () => {
     if (title && event.keyCode === 13 && event.ctrlKey) {
       addChat({ title });
@@ -57,6 +67,10 @@ export const ChatList = ({
     }
   };
 
+  /**
+   * Обработка события клика на кнопке удаления чата.
+   * @param {number} chatId - id чата для удаления.
+   */
   const handleDeleteClick = chatId => {
     deleteChat(chatId);
   };

@@ -24,6 +24,10 @@ export const Message = ({ name, content, messageId, deleteMessage }) => {
     "DeleteIcon--user": name === "Я" && del
   });
 
+  /**
+   * Обработка клика на кнопку удаления сообщения.
+   * @param {string} messageId - id сообщения.
+   */
   const handleDeleteClik = messageId => {
     deleteMessage(messageId);
   };

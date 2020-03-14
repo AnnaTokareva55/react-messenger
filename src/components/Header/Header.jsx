@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Header.css";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -26,6 +27,9 @@ const useStyles = makeStyles(theme => ({
 export const Header = ({ title, userName, showMenu }) => {
   const classes = useStyles();
 
+  /**
+   * Обработка события клика по иконке меню.
+   */
   const handleClick = () => showMenu();
 
   return (
@@ -56,4 +60,10 @@ export const Header = ({ title, userName, showMenu }) => {
       </AppBar>
     </div>
   );
+};
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  showMenu: PropTypes.func.isRequired
 };

@@ -1,14 +1,8 @@
 import React from "react";
 import ReactDom from "react-dom";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { App } from "./containers/App";
+import { App } from "./App";
 
-ReactDom.render(
-  <MuiThemeProvider>
-    <App />
-  </MuiThemeProvider>,
-  document.getElementById("root")
-);
+ReactDom.render(<App />, document.getElementById("root"));
 
 // Подключение service-worker.js к приложению.
 if ("serviceWorker" in navigator) {

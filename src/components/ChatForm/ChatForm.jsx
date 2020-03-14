@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./ChatForm.css";
 import Button from "@material-ui/core/Button";
@@ -16,11 +16,17 @@ export const ChatForm = ({ onSendMessage }) => {
   const [content, setContent] = useState("");
   const classes = useStyles();
 
+  /**
+   * Обработка события клика на кнопку отправки сообщения.
+   */
   const handleClick = () => {
     onSendMessage({ name, content });
     setContent("");
   };
 
+  /**
+   * Обработка события нажатия ctrl+enter в форме отправки сообщения.
+   */
   const handleKeyUp = () => {
     if (event.keyCode === 13 && event.ctrlKey) {
       onSendMessage({ name, content });

@@ -1,10 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { createLogger } from "redux-logger";
-import chatReducer from "./chatReducer";
-import userReducer from "./userReducer";
-import menuReducer from "./menuReducer";
-import botMiddleware from "./botMiddleware";
-import chatMiddleware from "./chatMiddleware";
 import { createBrowserHistory } from "history";
 import { routerMiddleware, connectRouter } from "connected-react-router";
 import { persistStore, persistReducer } from "redux-persist";
@@ -12,6 +7,11 @@ import storage from "redux-persist/lib/storage";
 import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import { apiMiddleware } from "redux-api-middleware";
 import thunk from "redux-thunk";
+import chatReducer from "./chatReducer";
+import userReducer from "./userReducer";
+import menuReducer from "./menuReducer";
+import botMiddleware from "./botMiddleware";
+import chatMiddleware from "./chatMiddleware";
 
 const persistConfig = {
   key: "reactmessanger",

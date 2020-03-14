@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Profile.css";
 
 // Компонент профиля пользователя.
@@ -9,4 +10,8 @@ export const Profile = ({ user }) => {
       <div>Имя пользователя: {user.userName}</div>
     </div>
   );
+};
+
+Profile.propTypes = {
+  user: PropTypes.object.isRequired
 };
