@@ -8,7 +8,7 @@ export class PushButton extends Component {
       <div className="push">
         <img
           className="push-img"
-          src="src/components/PushButton/img/push-off.png"
+          src="image/PushButton/push-off.png"
           alt="Push-уведомления"
         ></img>
       </div>

@@ -12,7 +12,7 @@ export const loadUser = () => {
       dispatch(userRequest);
       const result = await fetch("/api/user.json");
       dispatch(userSuccess(await result.json()));
-    } catch {
+    } catch (error) {
       dispatch(userFailure(error));
     }
   };

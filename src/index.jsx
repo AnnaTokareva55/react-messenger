@@ -8,14 +8,14 @@ ReactDom.render(<App />, document.getElementById("root"));
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/service-worker.js")
+      .register("./service-worker.js")
       .then(registration =>
         console.log(
           `Успешно зерегистрирован ServiceWorker с областью действия ${registration.scope}.`
         )
       )
       .catch(error =>
-        console.error(`Ну удалось зеристрировать ServiceWorker. ${error}.`)
+        console.error(`Не удалось зеристрировать ServiceWorker. ${error}.`)
       );
   });
 } else console.info(`ServiceWorker не поддерживается.`);
@@ -127,10 +127,10 @@ function notifications(window) {
     pushElement.checked = status;
     if (status) {
       pushElement.classList.add("active");
-      pushImgElement.src = "src/components/PushButton/img/push-on.png";
+      pushImgElement.src = "image/PushButton/push-on.png";
     } else {
       pushElement.classList.remove("active");
-      pushImgElement.src = "src/components/PushButton/img/push-off.png";
+      pushImgElement.src = "image/PushButton/push-off.png";
     }
   }
 
