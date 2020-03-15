@@ -8,14 +8,14 @@ ReactDom.render(<App />, document.getElementById("root"));
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./service-worker.js")
+      .register("/service-worker.js")
       .then(registration =>
         console.log(
           `Успешно зерегистрирован ServiceWorker с областью действия ${registration.scope}.`
         )
       )
       .catch(error =>
-        console.error(`Не удалось зеристрировать ServiceWorker. ${error}.`)
+        console.error(`Не удалось зерегистрировать ServiceWorker. ${error}.`)
       );
   });
 } else console.info(`ServiceWorker не поддерживается.`);
